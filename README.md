@@ -83,4 +83,4 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 ## <a name="snippets">🕸️ Assets & Code</a>
 
-The repository includes all the assets and code you need to get started with Finane Advisor.
+The repository includes all the assets and code you need to get started with Finance Advisor.
