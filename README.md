@@ -28,6 +28,7 @@ Built with the latest Next.js and TypeScript, Finan Smart is an advanced AI fina
 👉 **Budget Management**: Enables users to manage their budgets effectively.
 
 👉 **Personalized Financial Advice**: Provides detailed financial advice based on user-specific financial data using Gemini model.
+👉 **Personalized Financial Advice**: Provides detailed financial advice based on user-specific financial data using Gemini model.
 
 👉 **Responsive Design**: Ensures a seamless experience across different devices.
 
@@ -71,6 +72,7 @@ NEXT_PUBLIC_DATABASE_URL=
 
 ```
 
+Replace the placeholder values with your actual OpenAI credentials. You can obtain these credentials by signing up on the [Gemini](https://ai.google.dev/).
 Replace the placeholder values with your actual OpenAI credentials. You can obtain these credentials by signing up on the [Gemini](https://ai.google.dev/).
 
 **Running the Project**
