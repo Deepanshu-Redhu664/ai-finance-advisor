@@ -33,7 +33,7 @@ function IncomeItem({ budget, refreshData }) {
 						{/* <h2 className="text-sm text-gray-500">{budget.totalItem} Item</h2> */}
 					</div>
 				</div>
-				<h2 className="text-lg font-bold text-primary"> ${budget.amount}</h2>
+				<h2 className="text-lg font-bold text-primary"> ₹{budget.amount}</h2>
 			</div>
 			<div
 				className="ml-auto cursor-pointer text-destructive hover:underline"

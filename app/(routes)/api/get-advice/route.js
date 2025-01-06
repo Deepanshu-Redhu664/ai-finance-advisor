@@ -11,9 +11,9 @@ export async function POST(req) {
 
 	const userPrompt = `
       Based on the following financial data:
-      - Total Budget: ${totalBudget} USD 
-      - Expenses: ${totalSpend} USD 
-      - Incomes: ${totalIncome} USD
+      - Total Budget: ${totalBudget} INR 
+      - Expenses: ${totalSpend} INR 
+      - Incomes: ${totalIncome} INR
       Provide detailed financial advice in 2 sentence to help the user manage their finances more effectively.
     `;
 

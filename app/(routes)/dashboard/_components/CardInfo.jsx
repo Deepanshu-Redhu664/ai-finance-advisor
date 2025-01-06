@@ -1,7 +1,7 @@
 import formatNumber from '@/utils';
 import getFinancialAdvice from '@/utils/getFinancialAdvice';
 import {
-	CircleDollarSign,
+	IndianRupee,
 	PiggyBank,
 	ReceiptText,
 	Sparkles,
@@ -76,7 +76,7 @@ function CardInfo({ budgetList, incomeList }) {
 							<div>
 								<h2 className="text-sm">Total Budget</h2>
 								<h2 className="text-2xl font-bold">
-									${formatNumber(totalBudget)}
+								₹{formatNumber(totalBudget)}
 								</h2>
 							</div>
 							<PiggyBank className="w-12 h-12 p-3 text-white bg-blue-800 rounded-full" />
@@ -85,7 +85,7 @@ function CardInfo({ budgetList, incomeList }) {
 							<div>
 								<h2 className="text-sm">Total Spend</h2>
 								<h2 className="text-2xl font-bold">
-									${formatNumber(totalSpend)}
+								₹{formatNumber(totalSpend)}
 								</h2>
 							</div>
 							<ReceiptText className="w-12 h-12 p-3 text-white bg-blue-800 rounded-full" />
@@ -101,10 +101,10 @@ function CardInfo({ budgetList, incomeList }) {
 							<div>
 								<h2 className="text-sm">Sum of Income Streams</h2>
 								<h2 className="text-2xl font-bold">
-									${formatNumber(totalIncome)}
+								₹{formatNumber(totalIncome)}
 								</h2>
 							</div>
-							<CircleDollarSign className="w-12 h-12 p-3 text-white bg-blue-800 rounded-full" />
+							<IndianRupee className="w-12 h-12 p-3 text-white bg-blue-800 rounded-full" />
 						</div>
 					</div>
 				</div>

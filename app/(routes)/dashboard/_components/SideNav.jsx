@@ -1,6 +1,6 @@
 import { UserButton } from '@clerk/nextjs';
 import {
-	CircleDollarSign,
+	IndianRupee,
 	LayoutGrid,
 	PiggyBank,
 	ReceiptText,
@@ -23,7 +23,7 @@ function SideNav() {
 		{
 			id: 2,
 			name: 'Incomes',
-			icon: CircleDollarSign,
+			icon: IndianRupee,
 			path: '/dashboard/incomes',
 		},
 		{
