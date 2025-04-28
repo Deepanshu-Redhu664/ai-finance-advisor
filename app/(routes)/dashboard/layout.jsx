@@ -1,12 +1,14 @@
 'use client';
-import { db } from '@/utils/dbConfig';
-import { Budgets } from '@/utils/schema';
+import React, { useEffect } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
 import { useRouter } from 'next/navigation';
-import React, { useEffect } from 'react';
-import DashboardHeader from './_components/DashboardHeader';
-import SideNav from './_components/SideNav';
+
+import { db } from '~/db';
+import { Budgets } from '~/db/schema';
+import DashboardHeader from '../dashboard/_components/DashboardHeader';
+import SideNav from '../dashboard/_components/SideNav';
+import ChatComponent from '~/components/chat';
 
 function DashboardLayout({ children }) {
 	const { user } = useUser();
@@ -24,6 +26,7 @@ function DashboardLayout({ children }) {
 			router.replace('/dashboard/budgets');
 		}
 	};
+
 	return (
 		<div>
 			<div className="fixed hidden md:w-64 md:block ">
@@ -33,6 +36,7 @@ function DashboardLayout({ children }) {
 				<DashboardHeader />
 				{children}
 			</div>
+			<ChatComponent />
 		</div>
 	);
 }

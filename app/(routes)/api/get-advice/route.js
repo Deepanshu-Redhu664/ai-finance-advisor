@@ -1,7 +1,8 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+import { GoogleGenAI } from '@google/genai';
 
-const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 export async function POST(req) {
 	const data = await req.json();
@@ -17,10 +18,12 @@ export async function POST(req) {
       Provide detailed financial advice in 2 sentence to help the user manage their finances more effectively.
     `;
 
-	const res = await model.generateContent(userPrompt);
+	const res = await ai.models.generateContent({
+		model: 'gemini-2.0-flash-001',
+		contents: userPrompt,
+	});
 
-	// Process and return the response
-	const advice = res.response.text();
+	const advice = res.text;
 
 	return Response.json({ advice });
 }

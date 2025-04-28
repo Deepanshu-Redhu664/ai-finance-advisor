@@ -1,5 +1,5 @@
-import formatNumber from '@/utils';
-import getFinancialAdvice from '@/utils/getFinancialAdvice';
+import formatNumber from '~/utils';
+import getFinancialAdvice from '~/utils/getFinancialAdvice';
 import {
 	IndianRupee,
 	PiggyBank,
@@ -76,7 +76,7 @@ function CardInfo({ budgetList, incomeList }) {
 							<div>
 								<h2 className="text-sm">Total Budget</h2>
 								<h2 className="text-2xl font-bold">
-								₹{formatNumber(totalBudget)}
+									₹{formatNumber(totalBudget)}
 								</h2>
 							</div>
 							<PiggyBank className="w-12 h-12 p-3 text-white bg-blue-800 rounded-full" />
@@ -85,7 +85,7 @@ function CardInfo({ budgetList, incomeList }) {
 							<div>
 								<h2 className="text-sm">Total Spend</h2>
 								<h2 className="text-2xl font-bold">
-								₹{formatNumber(totalSpend)}
+									₹{formatNumber(totalSpend)}
 								</h2>
 							</div>
 							<ReceiptText className="w-12 h-12 p-3 text-white bg-blue-800 rounded-full" />
@@ -101,7 +101,7 @@ function CardInfo({ budgetList, incomeList }) {
 							<div>
 								<h2 className="text-sm">Sum of Income Streams</h2>
 								<h2 className="text-2xl font-bold">
-								₹{formatNumber(totalIncome)}
+									₹{formatNumber(totalIncome)}
 								</h2>
 							</div>
 							<IndianRupee className="w-12 h-12 p-3 text-white bg-blue-800 rounded-full" />
@@ -110,10 +110,10 @@ function CardInfo({ budgetList, incomeList }) {
 				</div>
 			) : (
 				<div className="grid grid-cols-1 gap-5 mt-7 md:grid-cols-2 lg:grid-cols-3">
-					{[1, 2, 3].map((item, index) => (
+					{[1, 2, 3].map((item) => (
 						<div
 							className="h-[110px] w-full bg-slate-200 animate-pulse rounded-lg"
-							key={index}
+							key={item}
 						></div>
 					))}
 				</div>

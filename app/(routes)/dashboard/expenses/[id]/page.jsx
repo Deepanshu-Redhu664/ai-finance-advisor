@@ -9,22 +9,24 @@ import {
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
-import { Button } from '@/components/ui/button';
-import { db } from '@/utils/dbConfig';
-import { Budgets, Expenses } from '@/utils/schema';
+} from '~/components/ui/alert-dialog';
+import { Button } from '~/components/ui/button';
+import { db } from '~/db';
+import { Budgets, Expenses } from '~/db/schema';
 import { useUser } from '@clerk/nextjs';
 import { desc, eq, getTableColumns, sql } from 'drizzle-orm';
 import { ArrowLeft, Pen, PenBox, Trash } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'sonner';
+
 import BudgetItem from '../../budgets/_components/BudgetItem';
 import AddExpense from '../_components/AddExpense';
 import EditBudget from '../_components/EditBudget';
 import ExpenseListTable from '../_components/ExpenseListTable';
 
-function ExpensesScreen({ params }) {
+function ExpensesScreen() {
+	const params = useParams();
 	const { user } = useUser();
 	const [budgetInfo, setbudgetInfo] = useState();
 	const [expensesList, setExpensesList] = useState([]);
@@ -75,10 +77,7 @@ function ExpensesScreen({ params }) {
 			.returning();
 
 		if (deleteExpenseResult) {
-			const result = await db
-				.delete(Budgets)
-				.where(eq(Budgets.id, params.id))
-				.returning();
+			await db.delete(Budgets).where(eq(Budgets.id, params.id));
 		}
 		toast('Budget Deleted !');
 		route.replace('/dashboard/budgets');
@@ -131,11 +130,7 @@ function ExpensesScreen({ params }) {
             rounded-lg animate-pulse"
 					></div>
 				)}
-				<AddExpense
-					budgetId={params.id}
-					user={user}
-					refreshData={() => getBudgetInfo()}
-				/>
+				<AddExpense budgetId={params.id} refreshData={() => getBudgetInfo()} />
 			</div>
 			<div className="mt-4">
 				<ExpenseListTable

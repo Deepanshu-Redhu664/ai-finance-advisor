@@ -1,5 +1,5 @@
-import { db } from '@/utils/dbConfig';
-import { Incomes } from '@/utils/schema';
+import { db } from '~/db';
+import { Incomes } from '~/db/schema';
 import { eq } from 'drizzle-orm';
 import Link from 'next/link';
 import React from 'react';

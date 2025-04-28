@@ -61,13 +61,15 @@ function SideNav() {
 
 	return (
 		<div className="h-screen p-5 border shadow-sm">
-			{/* <Image src={'/logo.svg'}
-        alt='logo'
-        width={160}
-        height={100}
-        /> */}
 			<div className="flex flex-row items-center">
-				<Image src={'./logo.svg'} alt="logo" width={180} height={25} />
+				<Image
+					src="/logo.svg"
+					alt="logo"
+					width={180}
+					height={25}
+					className="w-auto"
+					priority
+				/>
 			</div>
 			<div className="mt-5">
 				{menuList.map((menu, index) => (

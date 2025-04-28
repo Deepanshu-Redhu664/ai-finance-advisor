@@ -1,6 +1,6 @@
 'use client';
-import { db } from '@/utils/dbConfig';
-import { Expenses, Incomes } from '@/utils/schema';
+import { db } from '~/db';
+import { Expenses, Incomes } from '~/db/schema';
 import { useUser } from '@clerk/nextjs';
 import { desc, eq, getTableColumns, sql } from 'drizzle-orm';
 import React, { useEffect, useState } from 'react';
@@ -34,16 +34,16 @@ function IncomeList() {
 			<div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
 				<CreateIncomes refreshData={() => getIncomelist()} />
 				{incomelist?.length > 0
-					? incomelist.map((budget, index) => (
+					? incomelist.map((budget) => (
 							<IncomeItem
 								budget={budget}
-								key={index}
+								key={budget.id}
 								refreshData={getIncomelist}
 							/>
 					  ))
-					: [1, 2, 3, 4, 5].map((item, index) => (
+					: [1, 2, 3, 4, 5].map((item) => (
 							<div
-								key={index}
+								key={item}
 								className="w-full bg-slate-200 rounded-lg
         h-[150px] animate-pulse"
 							></div>

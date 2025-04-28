@@ -1,6 +1,6 @@
 'use client';
-import { db } from '@/utils/dbConfig';
-import { Budgets, Expenses, Incomes } from '@/utils/schema';
+import { db } from '~/db';
+import { Budgets, Expenses, Incomes } from '~/db/schema';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { desc, eq, getTableColumns, sql } from 'drizzle-orm';
 import React, { useEffect, useState } from 'react';
@@ -8,6 +8,7 @@ import BarChartDashboard from './_components/BarChartDashboard';
 import CardInfo from './_components/CardInfo';
 import BudgetItem from './budgets/_components/BudgetItem';
 import ExpenseListTable from './expenses/_components/ExpenseListTable';
+
 function Dashboard() {
 	const { user } = useUser();
 
@@ -79,7 +80,7 @@ function Dashboard() {
 
 	return (
 		<div className="p-8 bg-">
-			<h2 className="text-4xl font-bold">Hi, {user?.username} 👋</h2>
+			<h2 className="text-4xl font-bold">Hi, {user?.fullName} 👋</h2>
 			<p className="text-gray-500">
 				Here's what happenning with your money, Lets Manage your expense
 			</p>
@@ -102,13 +103,13 @@ function Dashboard() {
 				<div className="grid gap-5">
 					<h2 className="text-lg font-bold">Latest Budgets</h2>
 					{budgetList?.length > 0
-						? budgetList.map((budget, index) => (
-								<BudgetItem budget={budget} key={index} />
+						? budgetList.map((budget) => (
+								<BudgetItem budget={budget} key={budget.id} />
 						  ))
-						: [1, 2, 3, 4].map((item, index) => (
+						: [1, 2, 3, 4].map((item) => (
 								<div
-									className="h-[180xp] w-full
-                 bg-slate-200 rounded-lg animate-pulse"
+									className="h-[180xp] w-full bg-slate-200 rounded-lg animate-pulse"
+									key={item}
 								></div>
 						  ))}
 				</div>
