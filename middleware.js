@@ -15,6 +15,9 @@ export default clerkMiddleware(async (auth, req) => {
 		await auth.protect();
 	}
 	const { userId } = await auth();
+	if (!userId) {
+		return;
+	}
 	const clerk = await clerkClient();
 	const user = await clerk.users.getUser(userId);
 	const clerkId = user.id;
